@@ -6,16 +6,23 @@ namespace AS
         {
             InitializeComponent();
         }
-        
-        private void label1_Click(object sender, EventArgs e)
-        {
-            label1.Text = DateTime.Now.ToString("hh:mm");
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form newForm = new Form2();
-            newForm.Show();
+            Form lastForm = new Form1();
+            lastForm.Hide();
+            newForm.Show(); 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToString("hh:mm");
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
