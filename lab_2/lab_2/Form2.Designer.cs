@@ -170,6 +170,7 @@
             this.Controls.Add(this.radioButton1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosed += CloseForm2;
             this.ResumeLayout(false);
             this.PerformLayout();
 

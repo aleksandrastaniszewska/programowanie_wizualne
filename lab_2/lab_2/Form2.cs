@@ -65,8 +65,13 @@ namespace lab_2
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            if (prev != comboBox1.SelectedIndex + 1)
+            {
+                sum = sum - (prev * 100) + ((comboBox1.SelectedIndex + 1) * 100);
+                prev = comboBox1.SelectedIndex + 1;
+                label1.Text = sum.ToString();
+            }
 
-            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -132,6 +137,12 @@ namespace lab_2
                 sum -= 50;
             }
             label1.Text = sum.ToString();
+        }
+
+        private void CloseForm2(object sender, EventArgs e)
+        {
+            Class1.flag2 = true;
+            Class1.sum2 = sum;
         }
     }
 }

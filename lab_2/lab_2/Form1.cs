@@ -15,12 +15,22 @@ namespace lab_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Form newForm = new Form3();
+            newForm.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void setLable (object sender, EventArgs e)
+        {
+            label1.Text = (Class1.sum2 + Class1.sum3).ToString();
+            if (Class1.flag2 && Class1.flag3)
+            {
+                label1.BackColor = System.Drawing.Color.Green;
+            }
         }
     }
 }

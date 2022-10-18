@@ -73,6 +73,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += setLable;
             this.ResumeLayout(false);
             this.PerformLayout();
 
