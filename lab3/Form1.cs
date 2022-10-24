@@ -9,6 +9,7 @@ namespace lab3
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int a=1;
 
         }
 
