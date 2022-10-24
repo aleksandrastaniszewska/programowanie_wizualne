@@ -7,15 +7,14 @@ namespace lab3
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int a=1;
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -25,7 +24,8 @@ namespace lab3
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form newForm = new Form2(this);
+            newForm.Show();
         }
     }
 }
