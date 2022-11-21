@@ -11,5 +11,9 @@ namespace lab3
         public static string title;
         public static string author;
         public static string id;
+        public static string wyd;
+        public static string year;
+        public static string status;
+        public static string city;
     }
 }

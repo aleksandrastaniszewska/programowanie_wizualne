@@ -32,6 +32,10 @@
             this.Tytuł = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Wydawnictwo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Miasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,7 +48,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tytuł,
             this.Autor,
-            this.ID});
+            this.ID,
+            this.Wydawnictwo,
+            this.Miasto,
+            this.Rok,
+            this.Status});
             this.dataGridView1.Location = new System.Drawing.Point(27, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
@@ -67,6 +75,26 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            //
+            //Wydawinictwo
+            this.Wydawnictwo.HeaderText = "Wydawnictwo";
+            this.Wydawnictwo.Name = "Wydawnictwo";
+            this.Wydawnictwo.ReadOnly = true;
+            //
+            //Miasto
+            this.Miasto.HeaderText = "Miasto";
+            this.Miasto.Name = "Miasto";
+            this.Miasto.ReadOnly = true;
+            //
+            //Rok
+            this.Rok.HeaderText = "Rok";
+            this.Rok.Name = "Rok";
+            this.Rok.ReadOnly = true;
+            //
+            //Status
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // button1
             // 
@@ -120,6 +148,10 @@
         private DataGridViewTextBoxColumn Tytuł;
         private DataGridViewTextBoxColumn Autor;
         private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Wydawnictwo;
+        private DataGridViewTextBoxColumn Miasto;
+        private DataGridViewTextBoxColumn Rok;
+        private DataGridViewTextBoxColumn Status;
         private Button button1;
         private Button button2;
         private Button button3;

@@ -27,6 +27,10 @@ namespace lab3
             form1.dataGridView1.Rows[index].Cells[0].Value = Class1.title;
             form1.dataGridView1.Rows[index].Cells[1].Value = Class1.author;
             form1.dataGridView1.Rows[index].Cells[2].Value = Class1.id;
+            form1.dataGridView1.Rows[index].Cells[3].Value = Class1.wyd;
+            form1.dataGridView1.Rows[index].Cells[4].Value = Class1.city;
+            form1.dataGridView1.Rows[index].Cells[5].Value = Class1.year;
+            form1.dataGridView1.Rows[index].Cells[6].Value = Class1.status;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,6 +53,50 @@ namespace lab3
         {
             string author1 = textBox2.Text;
             Class1.author = author1;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            string city1 = textBox5.Text;
+            Class1.city = city1;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            string year1 = textBox4.Text;
+            Class1.year = year1;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string status1 = comboBox1.Text;
+            Class1.status = status1;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            string wyd1 = textBox3.Text;
+            Class1.wyd = wyd1;
         }
     }
 }
