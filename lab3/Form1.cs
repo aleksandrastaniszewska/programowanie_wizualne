@@ -22,6 +22,8 @@ namespace lab3
         }
         string filePath = "C:\\Users\\olasx\\source\\repos\\programowanie_wizualne\\DataGridViewExport.csv";
         string filePath2 = "C:\\Users\\olasx\\source\\repos\\programowanie_wizualne\\DataGridViewImport.csv";
+        string filePath3 = "C:\\Users\\student\\source\\repos\\programowanie_wizualne\\xml.xml";
+
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -50,6 +52,50 @@ namespace lab3
         {
             Form newForm = new Form2(this);
             newForm.Show();
+        }
+
+        private DataTable GetDataTableFromDGV(DataGridView dgv)
+        {
+            var dt = new DataTable();
+
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                if (column.Visible)
+                {
+                    dt.Columns.Add();
+                }
+            }
+            
+
+            object[] cellValues = new object[dgv.Columns.Count];
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    cellValues[i] = row.Cells[i].Value;
+                }
+                dt.Rows.Add(cellValues);
+            }
+
+            return dt;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataTable dT = GetDataTableFromDGV(dataGridView1);
+            DataSet dS = new DataSet();
+            dS.Tables.Add(dT);
+            dS.WriteXml(File.OpenWrite(filePath3));
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            DataSet dataSet = new DataSet();
+            dataSet.ReadXml(filePath3);
+            dataGridView1.DataSource = dataSet.Tables[0];
+
         }
     }
 }
