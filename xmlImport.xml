@@ -1,0 +1,31 @@
+<NewDataSet>
+  <Table1>
+    <Tytuł>Anne</Tytuł>
+    <Autor>Maria Składek</Autor>
+    <ID>0</ID>
+    <Wydawnictwo>sowa</Wydawnictwo>
+    <Miasto>Poznań</Miasto>
+    <Rok>1998</Rok>
+    <Status>DOSTEPNA</Status>
+  </Table1>
+  <Table1>
+    <Tytuł>Lama</Tytuł>
+    <Autor>Artur Wiśnia</Autor>
+    <ID>1</ID>
+    <Wydawnictwo>WSG</Wydawnictwo>
+    <Miasto>Szczecin</Miasto>
+    <Rok>2001</Rok>
+    <Status>WYPOZYCZONA</Status>
+  </Table1>
+  <Table1>
+    <Tytuł>Roboty</Tytuł>
+    <Autor>Anna Jolek</Autor>
+    <ID>2</ID>
+    <Wydawnictwo>polki</Wydawnictwo>
+    <Miasto>Warszawa</Miasto>
+    <Rok>2015</Rok>
+    <Status>DOSTEPNA</Status>
+  </Table1>
+  <Table1 />
+  <Table1 />
+</NewDataSet>

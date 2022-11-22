@@ -20,9 +20,10 @@ namespace lab3
         {
             InitializeComponent();
         }
-        string filePath = "C:\\Users\\olasx\\source\\repos\\programowanie_wizualne\\DataGridViewExport.csv";
-        string filePath2 = "C:\\Users\\olasx\\source\\repos\\programowanie_wizualne\\DataGridViewImport.csv";
-        string filePath3 = "C:\\Users\\student\\source\\repos\\programowanie_wizualne\\xml.xml";
+        string filePath = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewExport.csv";
+        string filePath2 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewImport.csv";
+        string filePath4 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\xmlExport.xml";
+        string filePath3 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\xmlImport.xml";
 
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -62,7 +63,7 @@ namespace lab3
             {
                 if (column.Visible)
                 {
-                    dt.Columns.Add();
+                    dt.Columns.Add(column.HeaderText);
                 }
             }
             
@@ -91,11 +92,11 @@ namespace lab3
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            
             DataSet dataSet = new DataSet();
-            dataSet.ReadXml(filePath3);
+            dataSet.ReadXml(filePath4);
+            dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dataSet.Tables[0];
-
         }
     }
 }
