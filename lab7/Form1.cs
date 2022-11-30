@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace lab7
 {
     public partial class Form1 : Form
@@ -6,10 +8,10 @@ namespace lab7
         {
             InitializeComponent();
         }
-        string filePath = "C:\\Users\\student\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewBookExport.csv";
-        string filePath1 = "C:\\Users\\student\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewUserExport.csv";
-        string filePath2 = "C:\\Users\\student\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewBookImport.csv";
-        string filePath3 = "C:\\Users\\student\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewUserImport.csv";
+        string filePath = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewBookExport.xml";
+        string filePath1 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewBookImport.xml";
+        string filePath2 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewUserExport.xml";
+        string filePath3 = "C:\\Users\\olasx\\source\\repos\\aleksandrastaniszewska\\programowanie_wizualne\\DataGridViewUserImport.xml";
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -22,72 +24,95 @@ namespace lab7
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var index = dataGridView1.Rows.Add();
-            dataGridView1.Rows[index].Cells[0].Value = index.ToString();
-            dataGridView1.Rows[index].Cells[1].Value = "test";
-            dataGridView1.Rows[index].Cells[2].Value = "test";
+            Form newForm = new Form2(this);
+            newForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            Form newForm = new Form3(this);
+            newForm.Show();
+        }
+        private DataTable GetDataTableFromDGV(DataGridView dgv)
+        {
+            var dt = new DataTable();
+
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                if (column.Visible)
+                {
+                    dt.Columns.Add(column.HeaderText);
+                }
+            }
+
+
+            object[] cellValues = new object[dgv.Columns.Count];
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    cellValues[i] = row.Cells[i].Value;
+                }
+                dt.Rows.Add(cellValues);
+            }
+
+            return dt;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridView1.SelectAll();
-            DataObject dataObject = dataGridView1.GetClipboardContent();
-            File.WriteAllText(filePath, dataObject.GetText(TextDataFormat.CommaSeparatedValue));
+            DataTable dT = GetDataTableFromDGV(dataGridView1);
+            DataSet dS = new DataSet();
+            dS.Tables.Add(dT);
+            dS.WriteXml(File.OpenWrite(filePath));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            File.ReadLines(filePath2).Skip(1)
-                .Select(x => x.Split(';'))
-                .ToList()
-                .ForEach(line => dataGridView1.Rows.Add(line.Where(e => !string.IsNullOrEmpty(e)).ToArray()));
+            DataSet dataSet = new DataSet();
+            dataSet.ReadXml(filePath1);
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = dataSet.Tables[0];
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var index = dataGridView2.Rows.Add();
-            dataGridView2.Rows[index].Cells[0].Value = index.ToString();
-            dataGridView2.Rows[index].Cells[1].Value = "test";
-            dataGridView2.Rows[index].Cells[2].Value = "test";
+            Form newForm = new Form4(this);
+            newForm.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            Form newForm = new Form5(this);
+            newForm.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            dataGridView2.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridView2.SelectAll();
-            DataObject dataObject = dataGridView2.GetClipboardContent();
-            File.WriteAllText(filePath1, dataObject.GetText(TextDataFormat.CommaSeparatedValue));
+            DataTable dT = GetDataTableFromDGV(dataGridView2);
+            DataSet dS = new DataSet();
+            dS.Tables.Add(dT);
+            dS.WriteXml(File.OpenWrite(filePath2));
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            dataGridView2.Rows.Clear();
-            File.ReadLines(filePath3).Skip(1)
-                .Select(x => x.Split(';'))
-                .ToList()
-                .ForEach(line => dataGridView2.Rows.Add(line.Where(e => !string.IsNullOrEmpty(e)).ToArray()));
+            DataSet dataSet = new DataSet();
+            dataSet.ReadXml(filePath3);
+            dataGridView2.Columns.Clear();
+            dataGridView2.DataSource = dataSet.Tables[0];
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            Form newForm = new Form6(this);
+            newForm.Show();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            Form newForm = new Form7(this);
+            newForm.Show();
         }
     }
 }
