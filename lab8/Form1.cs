@@ -19,19 +19,20 @@ namespace lab8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex == 0)
+            string animal = comboBox2.SelectedItem.ToString();
+            if (comboBox1.SelectedIndex == 0)
             {
-                Form newForm = new Form2();
+                Form newForm = new Form2(animal);
                 newForm.Show();
             }
             else if(comboBox1.SelectedIndex == 1)
             {
-                Form newForm = new Form3();
+                Form newForm = new Form3(animal);
                 newForm.Show();
             }
             else
             {
-                Form newForm = new Form4();
+                Form newForm = new Form4(animal);
                 newForm.Show();
             }
         }
